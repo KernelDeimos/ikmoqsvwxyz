@@ -1,7 +1,7 @@
 # ikmoqsvwxyz
 
 The letters "ikmoqsvwxyz" are missing from a photo that somebody posted on
-Facebook (photo below). As would be expected, people started to type messages excluding these letters in the thread (okay it was mostly me). I decided to write a program to automate this process, and also help decipher text written this wqay.
+Facebook (photo below). As would be expected, people started to type messages excluding these letters in the thread (okay it was mostly me). I decided to write a program to automate this process, and also help decipher text written this way.
 
 ## Usage
 
