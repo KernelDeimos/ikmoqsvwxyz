@@ -5,10 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 	"strings"
-
-	"github.com/sirupsen/logrus"
 )
 
 const (
@@ -29,12 +28,12 @@ func makeshort(fullword string) string {
 func main() {
 	data, err := ioutil.ReadFile(DATASET_LOC)
 	if err != nil {
-		logrus.Fatal(err)
+		log.Fatal(err)
 	}
 	dict := map[string]int{}
 	err = json.Unmarshal(data, &dict)
 	if err != nil {
-		logrus.Fatal(err)
+		log.Fatal(err)
 	}
 	newd := map[string][]string{}
 	for fullword := range dict {
@@ -46,10 +45,10 @@ func main() {
 		prevList = append(prevList, fullword)
 		newd[short] = prevList
 	}
-	logrus.Infof("Created %d shortforms", len(newd))
+	log.Printf("Created %d shortforms", len(newd))
 	scanner := bufio.NewScanner(os.Stdin)
 	sc := func() bool {
-		fmt.Print("> ")
+		fmt.Fprint(os.Stderr, "> ")
 		return scanner.Scan()
 	}
 	for sc() {
@@ -58,27 +57,26 @@ func main() {
 		parts := strings.Split(text, " ")
 
 		if len(parts) >= 3 && parts[0] == "run-command" {
-			logrus.Info("Hey whachya doin?")
 			if parts[1] == "find" {
 				_, yesitdoes := dict[parts[2]]
 				if yesitdoes {
-					logrus.Info("Yes it does!")
+					log.Println("Yes it does!")
 				} else {
-					logrus.Warn("Double nope")
+					log.Println("Double nope")
 				}
 			}
 			if parts[1] == "short" {
-				logrus.Info(makeshort(strings.Join(parts[2:], " ")))
+				fmt.Println(makeshort(strings.Join(parts[2:], " ")))
 			}
 			continue
 		}
 
 		for _, part := range parts {
-			logrus.Infof("Searching for '%s'", part)
+			log.Printf("Searching for '%s'\n", part)
 
 			lis, exists := newd[part]
 			if !exists {
-				logrus.Warn("nope")
+				log.Println("nope")
 			} else {
 				fmt.Println(lis)
 			}
