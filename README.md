@@ -1,9 +1,7 @@
 # ikmoqsvwxyz
 
-The letters "ikmoqsvwxyz" are missing from this photo that somebody posted on
-Facebook. As would be expected, people started to type messages excluding these letters in the thread (okay it was mostly me). I decided to write a program to automate this process, and also help decipher text written this wqay.
-
-![](inspiration.jpg)
+The letters "ikmoqsvwxyz" are missing from a photo that somebody posted on
+Facebook (photo below). As would be expected, people started to type messages excluding these letters in the thread (okay it was mostly me). I decided to write a program to automate this process, and also help decipher text written this wqay.
 
 ## Usage
 
@@ -30,3 +28,5 @@ Releases will have this file included.
 ## Contributions
 Yes. The most interesting contribution would be to try and find likely
 sentences after matching words are found.
+
+![](inspiration.jpg)
