@@ -5,6 +5,10 @@ Facebook (photo below). As would be expected, people started to type messages ex
 
 ## Usage
 
+### How to install
+No installation required! Just go to the releases page and download the
+latest version.
+
 ### Running
 This is not a GUI program, it is a CLI program. What this means is you need to
 run the program from inside Command Prompt. If you're using Linux you already
