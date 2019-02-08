@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	DATASET_LOC = "/home/eric/files/DATA/datasets/words_dictionary.json"
+	DATASET_LOC = "words_dictionary.json"
 )
 
 func makeshort(fullword string) string {
